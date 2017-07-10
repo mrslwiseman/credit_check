@@ -1,8 +1,10 @@
+# In order to understand recursion, you must first understand recursion.
+
 class CreditCheck
   attr_reader :num
 
-  def initialize(num)
-    @num = num.reverse
+  def initialize(num = "")
+    self.num = num
   end
 
   def valid?
