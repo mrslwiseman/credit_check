@@ -9,7 +9,11 @@ class Evaluate < Minitest::Test
   end
 
   def test_valid_card
-
+    valid_card = "5541808923795240"
+    assert(
+    CreditCheck.new(valid_card).valid?,
+    "Expected #{valid_card} to be a valid credit card number."
+    )
   end
 
   def test_invalid_card
