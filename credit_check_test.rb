@@ -17,7 +17,11 @@ class Evaluate < Minitest::Test
   end
 
   def test_invalid_card
-
+    invalid_card = "5541801923795240"
+    refute(
+    CreditCheck.new(invalid_card).valid?,
+    "Expected #{invalid_card} to be an invalid credit card number."
+    )
   end
 
 
