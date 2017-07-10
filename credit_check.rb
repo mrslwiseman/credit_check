@@ -15,14 +15,16 @@ class CreditCheck
       return 0
     end
 
+    x = num_str[i].to_i
+
     if (i % 2 == 0)
-      sum = num_str[i].to_i
+      sum = x
     else
 
-      if (num_str[i].to_i * 2) > 9
-        sum = (num_str[i].to_i * 2 - 9)
+      if (x * 2) > 9
+        sum = (x * 2 - 9)
       else
-        sum = num_str[i].to_i * 2
+        sum = x * 2
       end
     end
     return sum += check_sum(num_str, i + 1, sum)
