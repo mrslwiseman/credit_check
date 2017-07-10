@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "credit_check"
+#require_relative "credit_check"
 
 
 
