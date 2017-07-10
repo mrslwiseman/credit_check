@@ -72,5 +72,13 @@ class Evaluate < Minitest::Test
     )
   end
 
+  def test_invalid_length_error
+    exception = assert_raises ArgumentError do
+      invalid_length = "111"
+      CreditCheck.new(invalid_length)
+    end
+    assert_equal('Please enter a number with 15 or 16 digits.', exception.message)
+  end
+
 
 end
