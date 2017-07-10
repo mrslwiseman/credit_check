@@ -26,13 +26,13 @@ def prepare_string(str)
   str = str.dup
   clean_str = str.gsub(/\D/, '') #remove any non-digit characters
 
-  if clean_str == nil || clean_str == ""
-    raise ArgumentError.new('Please enter a number.')
-  end
+  raise ArgumentError.new('Please enter a number.') if clean_str == nil || clean_str == ""
 
-  unless clean_str.length == 16 ||  clean_str.length == 15
-    raise ArgumentError.new('Please enter a number with 15 or 16 digits.')
-  end
+
+
+  raise ArgumentError.new('Please enter a number with 15 or 16 digits.') unless clean_str.length == 16 ||  clean_str.length == 15
+
+
 
   clean_str.reverse
 end
