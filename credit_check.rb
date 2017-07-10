@@ -59,5 +59,5 @@ end
 
 end
 
-require "minitest/autorun"
+
 require_relative "credit_check_test"
