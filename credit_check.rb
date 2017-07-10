@@ -13,6 +13,31 @@ class CreditCheck
 
 private
 
+# checks input is valid before setting instance variable
+  def num=(num)
+    num = num.dup
+    num = prepare_string(num)
+    @num = num
+  end
+
+
+def prepare_string(str)
+
+  str = str.dup
+  clean_str = str.gsub(/\D/, '') #remove any non-digit characters
+
+  if clean_str == nil || clean_str == ""
+    raise ArgumentError.new('Please enter a number.')
+  end
+
+  unless clean_str.length == 16 ||  clean_str.length == 15
+    raise ArgumentError.new('Please enter a number with 15 or 16 digits.')
+  end
+
+  clean_str.reverse
+end
+
+
   def check_sum(num_str, i = 0, sum = 0)
 
     return 0 if i >= num_str.length
