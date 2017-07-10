@@ -39,4 +39,38 @@ class Evaluate < Minitest::Test
     "Expected #{invalid_card} to be an invalid credit card number."
     )
   end
+
+  def test_valid_number_with_spaces
+  valid_card = "5541 8089 2379 5240"
+    assert(
+    CreditCheck.new(valid_card).valid?,
+    "Expected #{valid_card} to be an valid credit card number."
+    )
+  end
+
+  def test_invalid_number_with_spaces
+    invalid_card = "5541 8019 2379 5240"
+    refute(
+    CreditCheck.new(invalid_card).valid?,
+    "Expected #{invalid_card} to be an invalid credit card number."
+    )
+  end
+
+  def test_valid_number_with_non_digits
+  valid_card = "5541.808923Y!795240"
+    assert(
+    CreditCheck.new(valid_card).valid?,
+    "Expected #{valid_card} to be an valid credit card number."
+    )
+  end
+
+  def test_invalid_number_with_non_digits
+    invalid_card = "5541. !80192x3795240"
+    refute(
+    CreditCheck.new(invalid_card).valid?,
+    "Expected #{invalid_card} to be an valid credit card number."
+    )
+  end
+
+
 end
