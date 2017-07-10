@@ -80,5 +80,11 @@ class Evaluate < Minitest::Test
     assert_equal('Please enter a number with 15 or 16 digits.', exception.message)
   end
 
-
+  def test_empty_input_error
+    exception = assert_raises ArgumentError do
+      invalid_length = ""
+      CreditCheck.new(invalid_length)
+    end
+    assert_equal('Please enter a number.', exception.message)
+  end
 end
