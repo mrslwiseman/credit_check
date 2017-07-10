@@ -9,6 +9,8 @@ class CreditCheck
     check_sum(@num) % 10 == 0
   end
 
+private
+
   def check_sum(num_str, i = 0, sum = 0)
 
     return 0 if i >= num_str.length
