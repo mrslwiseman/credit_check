@@ -24,5 +24,19 @@ class Evaluate < Minitest::Test
     )
   end
 
+  def test_valid_amex
+    valid_amex = "342804633855673"
+    assert(
+    CreditCheck.new(valid_amex).valid?,
+    "Expected #{valid_amex} to be a valid amex card number."
+    )
+  end
 
+  def test_invalid_amex
+    invalid_card = "342801633855673"
+    refute(
+    CreditCheck.new(invalid_card).valid?,
+    "Expected #{invalid_card} to be an invalid credit card number."
+    )
+  end
 end
