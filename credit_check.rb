@@ -31,6 +31,9 @@ private
     @num = prep if check_string(prep)
   end
 
+  def prepare_string(str)
+    str.gsub(/\D/, '').reverse
+  end
 
 def prepare_string(str)
 
