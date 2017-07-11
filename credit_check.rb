@@ -1,10 +1,10 @@
-class InvalidInputError < Exception;
+class InvalidInputError < StandardError;
   def message
     'Please enter a number.'
   end
 
 end
-class InvalidLengthError < Exception;
+class InvalidLengthError < StandardError;
   def message
     'Please enter a number with 15 or 16 digits.'
   end
