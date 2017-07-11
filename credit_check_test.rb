@@ -70,7 +70,7 @@ class Evaluate < Minitest::Test
   end
 
   def test_invalid_length_error
-    exception = assert_raises ArgumentError do
+    exception = assert_raises InvalidLengthError do
       invalid_length = "111"
       CreditCheck.new(invalid_length)
     end
@@ -78,7 +78,7 @@ class Evaluate < Minitest::Test
   end
 
   def test_empty_input_error
-    exception = assert_raises ArgumentError do
+    exception = assert_raises InvalidInputError do
       invalid_length = ""
       CreditCheck.new(invalid_length)
     end

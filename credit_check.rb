@@ -1,3 +1,15 @@
+class InvalidInputError < Exception;
+  def message
+    'Please enter a number.'
+  end
+
+end
+class InvalidLengthError < Exception;
+  def message
+    'Please enter a number with 15 or 16 digits.'
+  end
+end
+
 # In order to understand recursion, you must first understand recursion.
 
 class CreditCheck
@@ -26,13 +38,8 @@ def prepare_string(str)
   str = str.dup
   clean_str = str.gsub(/\D/, '') #remove any non-digit characters
 
-  raise ArgumentError.new('Please enter a number.') if clean_str == nil || clean_str == ""
-
-
-
-  raise ArgumentError.new('Please enter a number with 15 or 16 digits.') unless clean_str.length == 16 ||  clean_str.length == 15
-
-
+  raise InvalidInputError  if clean_str == nil || clean_str == ""
+  raise InvalidLengthError  unless clean_str.length == 16 ||  clean_str.length == 15
 
   clean_str.reverse
 end
