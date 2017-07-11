@@ -35,17 +35,11 @@ private
     str.gsub(/\D/, '').reverse
   end
 
-def prepare_string(str)
-
-  str = str.dup
-  clean_str = str.gsub(/\D/, '') #remove any non-digit characters
-
-  raise InvalidInputError  if clean_str == nil || clean_str == ""
-  raise InvalidLengthError  unless clean_str.length == 16 ||  clean_str.length == 15
-
-  clean_str.reverse
-end
-
+  def check_string(str)
+    raise InvalidInputError if str == nil || str == ""
+    raise InvalidLengthError  unless str.length == 16 ||  str.length == 15
+    true
+  end
 
   def check_sum(num_str, i = 0, sum = 0)
 
