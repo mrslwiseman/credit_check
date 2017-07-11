@@ -42,15 +42,11 @@ private
   end
 
   def check_sum(num_str, i = 0, sum = 0)
-
     return 0 if i >= num_str.length
-
     x = num_str[i].to_i
-
     if (i % 2 == 0)
       sum = x
     else
-
       if (x * 2) > 9
         sum = (x * 2 - 9)
       else
