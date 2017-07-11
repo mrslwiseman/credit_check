@@ -27,9 +27,8 @@ private
 
 # checks input is valid before setting instance variable
   def num=(num)
-    num = num.dup
-    num = prepare_string(num)
-    @num = num
+    prep = prepare_string(num)
+    @num = prep if check_string(prep)
   end
 
 
