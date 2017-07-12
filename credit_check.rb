@@ -1,31 +1,30 @@
+# In order to understand recursion, you must first understand recursion.
+
 class InvalidInputError < StandardError
   def message
     'Please enter a number.'
   end
-
 end
+
 class InvalidLengthError < StandardError
   def message
     'Please enter a number with 15 or 16 digits.'
   end
 end
 
-# In order to understand recursion, you must first understand recursion.
-
 class CreditCheck
   attr_reader :num
 
-  def initialize(num = "")
+  def initialize(num = '')
     self.num = num
   end
 
   def valid?
-    check_sum(@num) % 10 == 0
+    (check_sum(@num) % 10).zero?
   end
 
   private
 
-  # checks input is valid before setting instance variable
   def num=(num)
     prep = prepare_string(num)
     @num = prep if check_string(prep)
