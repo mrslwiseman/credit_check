@@ -25,12 +25,12 @@ irb -r './credit_check.rb'
 Create your own instances and validate some numbers yourself:
 
 ```
-trustworthy_tom = CreditCheck.new("5541808923795240")
+trustworthy_tina = CreditCheck.new("5541808923795240")
 trustworthy_tom.valid?
 => true
 ```
 ```
-dubious_character = CreditCheck.new("5541801923795240")
+dubious_daryl = CreditCheck.new("5541801923795240")
 trustworthy_tom.valid?
 => false
 ```
@@ -38,6 +38,7 @@ trustworthy_tom.valid?
 ## Error handling
 
 Raises an error if user enters invalid input.
+Will do its best to clean up the input in case of non-digit typo however.
 ```
 credit_check = CreditCheck.new("")
 => Please enter a number. (InvalidInputError)
