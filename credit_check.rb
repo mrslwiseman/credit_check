@@ -36,21 +36,20 @@ class CreditCheck
 
   def check_string(str)
     raise InvalidInputError if str.nil? || str.length.zero?
-    raise InvalidLengthError  unless str.length == 16 ||  str.length == 15
+    raise InvalidLengthError unless str.length == 16 || str.length == 15
     true
   end
 
   def check_sum(num_str, i = 0, sum = 0)
     return 0 if i >= num_str.length
     x = num_str[i].to_i
-    sum = if (i.even?)
-      x
-    elsif (x * 2) > 9
-      x * 2 - 9
-    else
-      x * 2
-    end
+    sum = if i.even?
+            x
+          elsif (x * 2) > 9
+            x * 2 - 9
+          else
+            x * 2
+          end
     sum + check_sum(num_str, i + 1, sum)
   end
-
 end
