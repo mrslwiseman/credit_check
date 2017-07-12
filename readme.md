@@ -26,12 +26,12 @@ Create your own instances and validate some numbers yourself:
 
 ```
 trustworthy_tina = CreditCheck.new("5541808923795240")
-trustworthy_tom.valid?
+trustworthy_tina.valid?
 => true
 ```
 ```
 dubious_daryl = CreditCheck.new("5541801923795240")
-trustworthy_tom.valid?
+dubious_daryl.valid?
 => false
 ```
 
