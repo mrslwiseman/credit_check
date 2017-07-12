@@ -36,7 +36,7 @@ private
   end
 
   def check_string(str)
-    raise InvalidInputError if str == nil || str == ""
+    raise InvalidInputError if str.nil? || str.length.zero?
     raise InvalidLengthError  unless str.length == 16 ||  str.length == 15
     true
   end
