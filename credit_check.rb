@@ -23,9 +23,9 @@ class CreditCheck
     check_sum(@num) % 10 == 0
   end
 
-private
+  private
 
-# checks input is valid before setting instance variable
+  # checks input is valid before setting instance variable
   def num=(num)
     prep = prepare_string(num)
     @num = prep if check_string(prep)
@@ -45,12 +45,12 @@ private
     return 0 if i >= num_str.length
     x = num_str[i].to_i
     sum = if (i.even?)
-            x
-          elsif (x * 2) > 9
-            x * 2 - 9
-          else
-            x * 2
-          end
+      x
+    elsif (x * 2) > 9
+      x * 2 - 9
+    else
+      x * 2
+    end
     sum + check_sum(num_str, i + 1, sum)
   end
 
